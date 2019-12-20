@@ -1,0 +1,14 @@
+.card-header{
+    background-color: rgb(87, 16, 16) !important;
+    color: white;
+}
+.btn-save{
+    background-color: rgb(87, 16, 16) !important;
+    color:white;
+    float:right !important;
+    margin-bottom: 10px !important;
+    margin-left: 1000px;
+}
+a{
+    color: white !important;
+}

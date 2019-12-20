@@ -1,0 +1,17 @@
+.card-header{
+  background-color: rgb(87, 16, 16) !important;
+  color: white;
+}
+
+.btn-view{background-color: rgb(87, 16, 16) !important;
+  color:white;
+  float:right !important;
+   /* margin-bottom: 10% !important; */
+   /* margin-left: 1000px; */
+}
+
+a{
+  color: white !important;
+}
+
+
