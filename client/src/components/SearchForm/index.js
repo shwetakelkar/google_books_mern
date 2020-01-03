@@ -1,4 +1,4 @@
-export * from "./SearchForm.js";
+export * from "./Input.js";
 export * from "./FormBtn.js";
 
 

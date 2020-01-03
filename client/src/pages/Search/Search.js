@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import {SearchForm, FormBtn} from "../../components/SearchForm"
+import {Input, FormBtn} from "../../components/SearchForm"
 import SearchResults from "../../components/SearchResults/SearchResults";
 import Jumbotron from "../../components/Jumbotron";
 
 
+
 class Search extends Component {
   state = {
-    search: "",
+    title: "",
+    author:"",
     results: [],
     
   };
 
   handleInputChange = event => {
-    this.setState({ search: event.target.value });
+    const {name , value} = event.target
+    this.setState({ [name]: value });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
     
-    API.getBooks(this.state.search)
+    API.getBooks(this.state.title,this.state.author)
       .then(res => {
        console.log(res)
 
@@ -40,17 +43,23 @@ class Search extends Component {
         <Jumbotron>
           <div className="text-center search-title">
             <h1>Google Books React Search!</h1>
-            <h4>Search book title and save it for future!</h4></div></Jumbotron>
+            <h4>Search books and save it for future!</h4></div></Jumbotron>
         <div className="container">
-          
-          <SearchForm 
-          value={this.state.search}
-          onChange={this.handleInputChange}
-          name="title"
-          placeholder ="Title Search"/>
-          
+         
+          <div className = "form-group">
+            <Input 
+            value={this.state.search}
+            onChange={this.handleInputChange}
+            name="title"
+            placeholder ="Title Search"/>
+            <Input 
+            value={this.state.author}
+            onChange={this.handleInputChange}
+            name="author"
+            placeholder ="Author Search"/>
+           </div>
           <FormBtn
-            disabled={!(this.state.search)}
+            disabled={!((this.state.title)||(this.state.author))}
             onClick={this.handleFormSubmit}> 
             Search Book
           </FormBtn>
